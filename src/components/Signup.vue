@@ -27,9 +27,11 @@ export default {
         if (!res) {
           throw new Error("Could not complete the signup");
         }
-        console.log(res);
+        console.log(res.user);
+        // display name update
+        res.user.updateProfile({ displayName: displayName.value });
       } catch (err) {
-        error.value = err;
+        error.value = err.message;
         console.log(error.value);
       }
     };
