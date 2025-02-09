@@ -1,19 +1,50 @@
 <template>
   <div class="welcome container">
-    <h2>Welcome to My Page</h2>
+    <Signup></Signup>
+    <Login></Login>
   </div>
 </template>
 
 <script>
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 export default {
-
-}
+  components: {
+    Login,
+    Signup,
+  },
+};
 </script>
 
 <style>
-.welcome{
-    text-align: center;
-    padding: 20px 0;
+.welcome {
+  text-align: center;
+  padding: 20px 0;
 }
-
+/* form styles */
+.welcome form {
+  width: 300px;
+  margin: 20px auto;
+}
+.welcome label {
+  display: block;
+  margin: 20px 0 10px;
+}
+.welcome input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  outline: none;
+  color: #999;
+}
+.welcome span {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.welcome button {
+  margin: 20px auto;
+}
 </style>
