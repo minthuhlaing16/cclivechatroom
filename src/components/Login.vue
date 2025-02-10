@@ -14,7 +14,7 @@
 import { ref } from "vue";
 import useLogin from "../composables/useLogin";
 export default {
-  setup() {
+  setup(props, context) {
     let email = ref("");
     let password = ref("");
     let { error, signIn } = useLogin();
@@ -22,7 +22,7 @@ export default {
       // console.log(email.value, password.value);
       let res = await signIn(email.value, password.value);
       if (res) {
-        console.log(res.user);
+        context.emit("enterChatroom");
       }
     };
 
