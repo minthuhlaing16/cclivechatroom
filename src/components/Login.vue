@@ -14,6 +14,7 @@ export default {
   setup() {
     let email = ref("");
     let password = ref("");
+    let error = ref(null);
     let login = async () => {
       // console.log(email.value, password.value);
       try {
@@ -26,7 +27,8 @@ export default {
         }
         console.log(res.user);
       } catch (err) {
-        console.log(err.message);
+        error.value = err.message;
+        console.log(error.value);
       }
     };
 
