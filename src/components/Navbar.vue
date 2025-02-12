@@ -11,10 +11,12 @@
 <script>
 import { ref } from "vue";
 import { auth } from "@/firebase/config";
+import getUser from "../composables/getUser";
 export default {
   setup() {
     let error = ref(null);
-    let user = ref(auth.currentUser);
+    let { user } = getUser();
+
     let logout = async () => {
       try {
         await auth.signOut();
@@ -24,10 +26,7 @@ export default {
       }
     };
     // console.log(auth.currentUser);
-    auth.onAuthStateChanged((_user) => {
-      // console.log("user state change. current user is ", _user);
-      user.value = _user;
-    });
+
     return { logout, user };
   },
 };
