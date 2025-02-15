@@ -20,9 +20,10 @@ export default {
     let logout = async () => {
       try {
         await auth.signOut();
+        console.log('user logged out');
       } catch (err) {
         error.value = err.message;
-        console.log(error.value);
+        console.log(err.value);
       }
     };
     // console.log(auth.currentUser);
